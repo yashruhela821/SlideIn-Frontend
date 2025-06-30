@@ -8,6 +8,8 @@ const Connections = () => {
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
   const connections = useSelector((store) => store.connection.connections);
+  const [loading, setLoading] = useState(false);
+
   const fetchConnections = async () => {
     try {
       setError(null);
@@ -27,7 +29,12 @@ const Connections = () => {
       }
       dispatch(addConnection(data.data));
     } catch (error) {
-      console.error("Error fetching connections:", error);
+      const errorMsg = error?.message || String(error);
+      if (errorMsg.includes("Failed to fetch")) {
+        setError("Network error: failed to fetch Connections.");
+      } else {
+        setError(errorMsg);
+      }
     }
   };
   useEffect(() => {
@@ -36,29 +43,33 @@ const Connections = () => {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4 flex justify-center items-center my-4 font-mono">
+      <h1 className="text-4xl font-bold mb-4 flex justify-center items-center my-4 font-mono">
         Your Connections
       </h1>
       {error ? (
-        <h2 className="text-pink-400 font-semibold font-serif text-xl  text-center">
-          {error}
-        </h2>
-      ) : connections && connections.length > 0 ? (
-        <div>
-          {connections.map((connection, index) => (
-            <ConnectionCard
-              key={index}
-              firstName={connection.firstName}
-              lastName={connection.lastName}
-              photoUrl={connection.photoUrl}
-              bio={connection.bio}
-              gender={connection.gender}
-              age={connection.age}
-            />
-          ))}
-        </div>
+        <>
+          here
+          <h2 className="text-pink-400 font-semibold font-serif text-xl mt-10  text-center">
+            {error}
+          </h2>
+        </>
       ) : (
-        <div className="text-pink-500 text-center">No connections Yet.</div>
+        connections &&
+        connections.length > 0 && (
+          <div>
+            {connections.map((connection, index) => (
+              <ConnectionCard
+                key={index}
+                firstName={connection.firstName}
+                lastName={connection.lastName}
+                photoUrl={connection.photoUrl}
+                bio={connection.bio}
+                gender={connection.gender}
+                age={connection.age}
+              />
+            ))}
+          </div>
+        )
       )}
     </div>
   );

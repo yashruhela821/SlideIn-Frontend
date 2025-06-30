@@ -103,19 +103,26 @@ const Feed = () => {
 
   const fetchFeed = async () => {
     setLoading(true);
+    setError(null); // Reset error before fetching
     try {
       const res = await fetch(BASE_URL + "/user/feed", {
         method: "GET",
         credentials: "include",
       });
+      // Handle HTTP errors (server responded but with error status)
       if (!res.ok) {
         const data = await res.json();
         throw new Error(data.message || "Failed to fetch feed");
       }
+
       const feedData = await res.json();
       dispatch(addFeed(feedData.data));
     } catch (error) {
-      setError(error.message);
+      if (error.message === "Failed to fetch") {
+        setError("Network error: Please check your internet connection.");
+      } else {
+        setError(error.message);
+      }
     } finally {
       setLoading(false);
     }
@@ -150,10 +157,16 @@ const Feed = () => {
         <span className="loading loading-bars loading-xl"></span>
       </div>
     );
-  if (error) return <div>Error loading feed: {error}</div>;
+  if (error)
+    return (
+      <div className="text-white font-semibold font-mono text-2xl text-center flex justify-center items-center min-h-[200px]">
+        {" "}
+        {error}
+      </div>
+    );
   if (!feed || feed.length === 0)
     return (
-      <div className="text-pink-400 font-semibold font-serif text-2xl text-center flex justify-center items-center min-h-[200px]">
+      <div className="text-pink-400 font-semibold font-mono text-2xl text-center flex justify-center items-center min-h-[200px]">
         No feed available
       </div>
     );
@@ -169,7 +182,7 @@ const Feed = () => {
           onClose={() => setShowMatch(false)}
           matchName={matchName}
         />
-        <div className="flex items-center justify-center h-screen bg-pink-200">
+        <div className="flex items-center justify-center h-screen bg-gradient-to-br from-yellow-100 via-orange-300 to-yellow-200">
           <TinderCard
             ref={cardRef}
             key={user._id}

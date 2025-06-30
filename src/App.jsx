@@ -8,6 +8,8 @@ import Profile from "./Components/Profile";
 import Connections from "./Components/Connections";
 import Requests from "./Components/Requests";
 import Password from "./Components/Password";
+import Trail from "./Components/Trial";
+import Error from "./Components/Error";
 function App() {
   return (
     <>
@@ -21,6 +23,8 @@ function App() {
               <Route path="/connections" element={<Connections />} />
               <Route path="/requests" element={<Requests />} />
               <Route path="/password" element={<Password />} />
+              <Route path="/trial" element={<Trail />} />
+              <Route path="/error" element={<Error />} />
             </Route>
           </Routes>
         </BrowserRouter>

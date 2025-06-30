@@ -65,6 +65,7 @@ const Connections = () => {
       console.log(requests);
     } catch (error) {
       console.error("Error fetching Requests:", error);
+      setError(error.message);
     }
   };
   useEffect(() => {
@@ -77,14 +78,14 @@ const Connections = () => {
         Your Requests
       </h1>
 
-      {loading ? (
-        <div className="text-gray-500 text-center">
-          <span className="loading loading-bars loading-xl"></span>
-        </div>
-      ) : error ? (
+      {error ? (
         <h2 className="text-pink-400 font-semibold font-serif text-xl text-center">
           {error}
         </h2>
+      ) : loading ? (
+        <div className="text-gray-500 text-center">
+          <span className="loading loading-bars loading-xl"></span>
+        </div>
       ) : requests && requests.length > 0 ? (
         <div>
           {requests.map((req, index) => (

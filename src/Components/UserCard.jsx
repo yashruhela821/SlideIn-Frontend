@@ -236,7 +236,7 @@ const UserCard = ({ user, onMatch, swipe }) => {
   };
 
   return (
-    <div className="relative w-96 h-[550px] rounded-3xl overflow-hidden shadow-xl bg-white">
+    <div className="relative w-[400px] h-[600px] rounded-3xl overflow-hidden shadow-xl bg-white">
       {/* Background Image */}
       <img
         src={photoUrl || "https://via.placeholder.com/320x480"}
