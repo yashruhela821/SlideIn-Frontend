@@ -32,12 +32,8 @@ const NavBar = () => {
       <div className="navbar  fixed top-0 left-0 w-full z-50">
         {" "}
         <div className="flex-1">
-          <Link
-            to="/"
-            className="btn font-tangerine btn-ghost text-xl font-bold"
-          >
-            {" "}
-            🐝MingleBee{" "}
+          <Link to="/">
+            <img className=" h-14" src="/image.png"></img>
           </Link>
         </div>
         {user && (

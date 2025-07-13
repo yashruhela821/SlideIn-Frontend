@@ -6,7 +6,7 @@ import { SplitText as GSAPSplitText } from "gsap/SplitText";
 gsap.registerPlugin(ScrollTrigger, GSAPSplitText);
 
 const SplitText = ({
-  text = "hello world",
+  text = "MINGLEBEE",
   className = "",
   delay = 100,
   duration = 0.6,
@@ -110,18 +110,20 @@ const SplitText = ({
   return (
     <p
       ref={ref}
+      style={{ fontFamily: "'Cedarville Cursive', cursive" }}
       className={`
     split-parent 
     overflow-hidden 
-    text-5xl 
-    font-mono
-    font-extrabold 
+    text-4xl
+ font-mono
+ font-bold
+       
     absolute 
     right-1/2 
     top-1/6 
     tracking-widest 
-    text-yellow-400 
-    drop-shadow-[4px_4px_0px_rgba(59,130,246,1)] 
+    text-[#7B4019] 
+    drop-shadow-[10px_10px_10px_[#FFEEA9]] 
     ${className}
   `}
     >

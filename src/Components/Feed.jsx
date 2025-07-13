@@ -182,7 +182,7 @@ const Feed = () => {
           onClose={() => setShowMatch(false)}
           matchName={matchName}
         />
-        <div className="flex items-center justify-center h-screen bg-gradient-to-br from-yellow-100 via-orange-300 to-yellow-200">
+        <div className="flex items-center justify-center h-screen bg-gradient-to-br from-[#FFCCEA] to-[#92A8D1]">
           <TinderCard
             ref={cardRef}
             key={user._id}

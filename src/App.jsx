@@ -10,6 +10,7 @@ import Requests from "./Components/Requests";
 import Password from "./Components/Password";
 import Trail from "./Components/Trial";
 import Error from "./Components/Error";
+import Rotation from "./Components/Rotation";
 function App() {
   return (
     <>
@@ -25,6 +26,7 @@ function App() {
               <Route path="/password" element={<Password />} />
               <Route path="/trial" element={<Trail />} />
               <Route path="/error" element={<Error />} />
+              <Route path="/rotate" element={<Rotation />} />
             </Route>
           </Routes>
         </BrowserRouter>

@@ -95,7 +95,7 @@ const EditProfile = ({ user }) => {
     user && (
       <>
         <div className="bg-gradient-to-br from-yellow-100 via-orange-300 to-yellow-200 flex items-center gap-8 justify-center">
-          <div className="min-h-screen flex bg-orange-250 px-2 py-2">
+          <div className="min-h-screen mt-10 flex bg-orange-250 px-2 py-2">
             <div
               className="
               w-[700px] max-w-xl rounded-3xl
@@ -283,7 +283,7 @@ const EditProfile = ({ user }) => {
                   onClick={saveProfile}
                   type="submit"
                   className="
-                  mt-2 w-full py-3 rounded-full
+                  w-full py-2 my-3 rounded-full
                   bg-yellow-400
                   text-gray-900 font-bold text-lg font-mono
                   border border-orange-400
@@ -301,7 +301,7 @@ const EditProfile = ({ user }) => {
                 </button>
               </form>
               {/* Links */}
-              <div className="mt-3 text-center text-orange-400 text-xs font-mono">
+              <div className=" text-center text-orange-400 text-xs font-mono">
                 <Link
                   to="/"
                   className="font-bold text-orange-600 cursor-pointer"
