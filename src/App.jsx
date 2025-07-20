@@ -11,6 +11,10 @@ import Password from "./Components/Password";
 import Trail from "./Components/Trial";
 import Error from "./Components/Error";
 import Rotation from "./Components/Rotation";
+import Privacy from "./Components/Privacy";
+import Terms from "./Components/Terms";
+import Refund from "./Components/Refund";
+import ContactUs from "./Components/ContactUs";
 function App() {
   return (
     <>
@@ -27,6 +31,10 @@ function App() {
               <Route path="/trial" element={<Trail />} />
               <Route path="/error" element={<Error />} />
               <Route path="/rotate" element={<Rotation />} />
+              <Route path="/PrivacyPolicy" element={<Privacy />} />
+              <Route path="/Terms&Conditions" element={<Terms />} />
+              <Route path="/RefundorCancellationPolicy" element={<Refund />} />
+              <Route path="/ContactUs" element={<ContactUs />} />
             </Route>
           </Routes>
         </BrowserRouter>

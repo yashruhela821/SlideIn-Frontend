@@ -1,7 +1,7 @@
 import React, { use, useState } from "react";
 import { addUser } from "../utils/userSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
 import Rotation from "./Rotation";
 import SplitText from "./Trial";
@@ -342,6 +342,26 @@ const Login = () => {
             )}
           </div>
         </div>
+      </div>
+
+      <div className=" text-center  m-2 ">
+        <h1 className="text-2xl font-bold text-yellow-400 font-mono mb-4">
+          Terms and Policies
+        </h1>
+        <ul className=" p-2 border- rounded-2xl  gap-4 text-white font-mono">
+          <Link to="/PrivacyPolicy">
+            <li className="hover:underline">Privacy Policy</li>
+          </Link>
+          <Link to="/Terms&Conditions">
+            <li className="hover:underline">Terms & Conditions</li>
+          </Link>
+          <Link to="/RefundOrCancellationPolicy">
+            <li className="hover:underline">Refund/Cancellation Policy</li>
+          </Link>
+          <Link to="/ContactUs">
+            <li className="hover:underline">Contact Us</li>
+          </Link>
+        </ul>
       </div>
     </>
   );
