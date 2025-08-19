@@ -1,4 +1,4 @@
-export const BASE_URL = "http://localhost:3000";
+export const BASE_URL = "/api";
 export const createConnectionUrl = () => {
-  return isObject(BASE_URL) ;
+  return isObject(BASE_URL);
 };
