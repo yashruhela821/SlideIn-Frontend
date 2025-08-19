@@ -66,6 +66,7 @@ const Connections = () => {
                 bio={connection.bio}
                 gender={connection.gender}
                 age={connection.age}
+                userId={connection.userId}
               />
             ))}
           </div>

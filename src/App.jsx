@@ -15,29 +15,38 @@ import Privacy from "./Components/Privacy";
 import Terms from "./Components/Terms";
 import Refund from "./Components/Refund";
 import ContactUs from "./Components/ContactUs";
+import Chat from "./Components/Chat";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistor } from "./utils/appstore";
 function App() {
   return (
     <>
       <Provider store={appStore}>
-        <BrowserRouter basename="/">
-          <Routes>
-            <Route path="/" element={<Body />}>
-              <Route path="/login" element={<Login />} />
-              <Route path="/" element={<Feed />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/connections" element={<Connections />} />
-              <Route path="/requests" element={<Requests />} />
-              <Route path="/password" element={<Password />} />
-              <Route path="/trial" element={<Trail />} />
-              <Route path="/error" element={<Error />} />
-              <Route path="/rotate" element={<Rotation />} />
-              <Route path="/PrivacyPolicy" element={<Privacy />} />
-              <Route path="/Terms&Conditions" element={<Terms />} />
-              <Route path="/RefundorCancellationPolicy" element={<Refund />} />
-              <Route path="/ContactUs" element={<ContactUs />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
+        <PersistGate loading={null} persistor={persistor}>
+          <BrowserRouter basename="/">
+            <Routes>
+              <Route path="/" element={<Body />}>
+                <Route path="/login" element={<Login />} />
+                <Route path="/" element={<Feed />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/connections" element={<Connections />} />
+                <Route path="/requests" element={<Requests />} />
+                <Route path="/password" element={<Password />} />
+                <Route path="/trial" element={<Trail />} />
+                <Route path="/error" element={<Error />} />
+                <Route path="/rotate" element={<Rotation />} />
+                <Route path="/PrivacyPolicy" element={<Privacy />} />
+                <Route path="/Terms&Conditions" element={<Terms />} />
+                <Route
+                  path="/RefundorCancellationPolicy"
+                  element={<Refund />}
+                />
+                <Route path="/ContactUs" element={<ContactUs />} />
+                <Route path="chat/:targetUserId" element={<Chat />} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </PersistGate>
       </Provider>
     </>
   );
