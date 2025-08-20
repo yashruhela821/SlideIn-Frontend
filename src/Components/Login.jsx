@@ -7,10 +7,10 @@ import Rotation from "./Rotation";
 import SplitText from "./Trial";
 
 const Login = () => {
-  const [email, setEmail] = useState("nova@gmail.com");
-  const [password, setPassword] = useState("GolaKhalo123@");
-  const [firstName, setFirstName] = useState("Nova");
-  const [lastName, setLastName] = useState("Khan");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [isLogin, setIsLogin] = useState(true); // Assuming you want to toggle between login and signup
   const dispatch = useDispatch();
   const navigate = useNavigate();
